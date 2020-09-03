@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+  section#cover.min-vh-100
+    #cover-caption
+      .container
+        .row.text-white
+          .col-xl-5.col-lg-6.col-md-8.col-sm-10.mx-auto.text-center.form.p-4
+            h1.display-4.py-2.text-truncate Nueva Bicicleta.
+            .px-2
+              form.justify-content-center(action='/bicicletas/create' method='post')
+                .form-group
+                  label.sr-only id
+                  input.form-control(type='text' name='id' placeholder='3')
+                .form-group
+                  label.sr-only Color
+                  input.form-control(type='text' name='color' placeholder='Rojo')
+                .form-group
+                  label.sr-only Tipo
+                  input.form-control(type='text' name='tipo' placeholder='Montaña')
+                .form-group
+                  label.sr-only Latitud:
+                  input.form-control(type='text' name='latitud' placeholder='latitud')
+                .form-group
+                  label.sr-only longitud:
+                  input.form-control(type='text' name='longitud' placeholder='longitud')
+                a.btn.btn-primary.btn-lg(href='/bicicletas') Volver
+                br
+                br
+                button.btn.btn-primary.btn-lg(type='submit') Añadir

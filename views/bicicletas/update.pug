@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+  section#cover.min-vh-100
+    #cover-caption
+      .container
+        .row.text-white
+          .col-xl-5.col-lg-6.col-md-8.col-sm-10.mx-auto.text-center.form.p-4
+            h1.display-4.py-2.text-truncate Actualizar Bicicleta.
+            .px-2
+              form.justify-content-center(action=`/bicicletas/${bici.id}/update` method='post')
+                .form-group
+                  label.sr-only id
+                  input.form-control(type='text' name='id' value=bici.id placeholder='3')
+                .form-group
+                  label.sr-only Color
+                  input.form-control(type='text' name='color' value=bici.color placeholder='Rojo')
+                .form-group
+                  label.sr-only Tipo
+                  input.form-control(type='text' name='modelo' value=bici.modelo placeholder='Montaña')
+                .form-group
+                  label.sr-only Latitud:
+                  input.form-control(type='text' name='lat' value=bici.ubicacion[0] placeholder='latitud')
+                .form-group
+                  label.sr-only Latitud:
+                  input.form-control(type='text' name='lon' value=bici.ubicacion[1] placeholder='longitud')
+                a.btn.btn-primary.btn-lg(href='/bicicletas') Volver
+                br
+                br
+                button.btn.btn-primary.btn-lg(type='submit') Actualizar

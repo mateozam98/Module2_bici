@@ -1,0 +1,33 @@
+var Bicicleta = require("../../models/bicicleta")
+//antes de cada test
+beforeEach(function(){ 
+    Bicicleta.allBicis= [];
+});
+
+
+describe("Bicicleta.add",()=>{
+    it("agregamos 1",()=>{
+        expect(Bicicleta.allBicis.length).toBe(0);
+        var a = new Bicicleta(1, "Azul", "bmx", [-33.154156, -62.851488]);
+        Bicicleta.add(a)
+        expect(Bicicleta.allBicis.length).toBe(1);
+
+    });
+});
+
+describe("Bicicleta.findById",()=>{
+    it("Buscamos el id 3",()=>{
+        var n = new Bicicleta(3, "Azul", "bmx", [-33.154156, -62.851488]);
+        Bicicleta.add(n)
+        console.log("total: "+Bicicleta.allBicis.length);
+        expect(Bicicleta.findById(3)).toBe(n);
+    });
+});
+
+describe("Bicicleta.removeById",()=>{
+    it("removemos el id 3",()=>{
+        var cantidad = Bicicleta.allBicis.length;
+        Bicicleta.removeById(3)
+        expect(Bicicleta.allBicis.length).toBe(cantidad-1);
+    });
+});
